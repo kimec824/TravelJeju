@@ -1,0 +1,29 @@
+.submit_button{
+    align-content: center;
+    width:100px;
+    display:block;
+    background-color: #556F59;
+    border: none;
+    color:#fff;
+    padding: 15px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin: 4px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.submit_button:hover{
+    background-color:#3C4345;
+}
+
+.survey_table{
+    border:0;
+    width:80%;
+    height:100%;
+    margin-left:auto;
+    margin-right:auto;
+    text-align: center;
+}
