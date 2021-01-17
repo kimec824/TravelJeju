@@ -1,0 +1,10 @@
+.ContentPage{
+    width : 300px;
+    background-color: black;
+    margin-left : 10px;
+    
+}
+
+.cardContainer{
+    display: flex;
+}
