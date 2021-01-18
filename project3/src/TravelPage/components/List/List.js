@@ -15,6 +15,7 @@ const useStyle = makeStyles((theme) => ({
     marginTop: theme.spacing(4),
     marginBottom: theme.spacing(4),
     paddingBottom: theme.spacing(2),
+    columnCount: 5,
   },
 }));
 export default function List({ list, index }) {
@@ -33,8 +34,10 @@ export default function List({ list, index }) {
                 >
                   {list.cards.map((card, index) => (
                     <Card key={card.id} card={card} index={index} />
+                   
                   ))}
                   {provided.placeholder}
+                  
                 </div>
               )}
             </Droppable>

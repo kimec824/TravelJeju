@@ -8,3 +8,8 @@
 .cardContainer{
     display: flex;
 }
+
+.list{
+    columns: 4;
+
+}
