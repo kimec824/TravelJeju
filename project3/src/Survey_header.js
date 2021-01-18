@@ -5,7 +5,7 @@ function Survey_header(){
     return(
         <div className='header'>
             <h1>
-                제주도
+                🍊당신에게 어울리는 제주 여행지는?🍊
             </h1>
         </div>
     )

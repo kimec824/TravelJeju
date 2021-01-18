@@ -80,6 +80,7 @@ function Questionbox(){
                 />
                 </div>
 
+
             <h2>나는 여행을...</h2>
                 <div>
                 <span>가족 단위로 갈 것이다.</span>
