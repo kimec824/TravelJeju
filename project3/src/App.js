@@ -1,24 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+
+import Questionbox from './Questionbox';
+import Survey_header from './Survey_header';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+          <div className="app">
+            {/*HEADER*/}
+            <Survey_header/>
+            {/*MAIN*/}
+            <Questionbox/>
+            {/*FOOTER*/}
+  
+          </div>
   );
 }
 
