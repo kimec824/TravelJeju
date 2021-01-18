@@ -1,0 +1,18 @@
+
+.questionbox{ 
+    @import url(//fonts.googleapis.com/earlyaccess/hanna.css);
+    font-family: 'Hanna', sans-serif;
+    background-color:rgba(255, 255, 255, 0.75);
+    padding:30px;
+    margin:0px;
+    justify-content:center;
+    width:50%;
+    text-align: center;
+    height:70%;
+    border-radius: 100px;
+    position: absolute;
+    top:60%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    z-index:1000;
+}

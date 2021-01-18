@@ -1,7 +1,8 @@
-import './App.css';
+import Questionbox from './Questionbox';
+import Survey_header from './Survey_header';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import Result from './Result';
 import TravelPage from './TravelPage/TravelPage';
-import Home from './Home';
-import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 
 
 
@@ -16,12 +17,14 @@ function App() {
           </Route>
 
           <Route path= "/">
-          <Home /> 
+          <Survey_header/>
+          <Questionbox/>
           </Route>
 
         </Switch>
      </Router>
     </div>
+
   );
 }
 
