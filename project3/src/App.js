@@ -1,16 +1,14 @@
 
 import Questionbox from './Questionbox';
 import Survey_header from './Survey_header';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import Result from './Result';
 
 function App() {
   return (
-          <div className="app">
-            {/*HEADER*/}
+          <div>
             <Survey_header/>
-            {/*MAIN*/}
             <Questionbox/>
-            {/*FOOTER*/}
-  
           </div>
   );
 }

@@ -1,8 +1,10 @@
 import React,{useState} from 'react'
+import ReactDOM from 'react-dom';
 import './questionbox.css'
 import axios from 'axios'
 import Radio from '@material-ui/core/Radio';
-
+import { BrowserRouter as Router,Route,Link } from 'react-router-dom';
+import Result from './Result.js'
 
 
 function Questionbox(){
@@ -25,6 +27,7 @@ function Questionbox(){
     }
     function Submit(){
         alert("하이");
+        axios.delete('http://192.249.18.235:3000/surveyresult');
         axios.post(
             'http://192.249.18.235:3000/surveyresult',
             json,
@@ -37,10 +40,11 @@ function Questionbox(){
             console.log(error);
         });
         //alert(axios.get('http://192.249.18.235:3000/surveyresult'));
-
+       
     }
     return(
-        <div>
+<div>
+    <Router>
         <div className='questionbox'>
             <h1>질문1</h1>
             <div>
@@ -103,14 +107,23 @@ function Questionbox(){
                 onChange={q2checked}
                 />
                 </div>
-        </div>
-        <div>
+                <div>
             <button onClick={Submit}>제출</button>
         </div>
+        <ul>
+            <li><Link to="/result">result link</Link></li>
+        </ul>
+        </div>
+        <Route path="/result">
+            <Result/>
+        </Route>
+    </Router>
 </div>
         
     );
     
 }
+
+//ReactDOM.render(<BrowserRouter><Questionbox/></BrowserRouter>,document.getElementById('root'));
 
 export default Questionbox;
