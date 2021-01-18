@@ -10,7 +10,10 @@ import Result from './Result.js'
 function Questionbox(){
     const [q1,setQ1] = useState("one")
     const [q2,setQ2] = useState("one")
+    const [q3,setQ3] = useState("one")
+    const [q4,setQ4] = useState("one")
     const axios=require('axios');
+
     const q1checked=(e)=>
     {
         setQ1(e.target.value)
@@ -21,12 +24,24 @@ function Questionbox(){
         setQ2(e.target.value)
         console.log("q2checked")
     }
+    const q3checked=(e)=>
+    {
+        setQ3(e.target.value)
+        console.log("q3checked")
+    }
+    const q4checked=(e)=>
+    { 
+        setQ4(e.target.value)
+        console.log("q4checked")
+    }
+
     const json={
         q1:q1,
-        q2:q2
+        q2:q2,
+        q3:q3,
+        q4:q4
     }
     function Submit(){
-        alert("하이");
         axios.delete('http://192.249.18.235:3000/surveyresult');
         axios.post(
             'http://192.249.18.235:3000/surveyresult',
@@ -39,16 +54,15 @@ function Questionbox(){
         }).catch(error=>{
             console.log(error);
         });
-        //alert(axios.get('http://192.249.18.235:3000/surveyresult'));
        
     }
     return(
 <div>
     <Router>
         <div className='questionbox'>
-            <h1>질문1</h1>
+            <h2>나는 제주도에서 운전을 할 수 </h2>
             <div>
-                <span>후보1</span>
+                <span>있다.</span>
                 <Radio 
                 value="one"
                 checked={q1==="one"} 
@@ -56,9 +70,8 @@ function Questionbox(){
                 onChange={q1checked}
                 />
                 </div>
-
                 <div>
-                <span>후보2</span>
+                <span>없다.</span>
                 <Radio 
                 value="two" 
                 checked={q1==="two"} 
@@ -67,19 +80,9 @@ function Questionbox(){
                 />
                 </div>
 
+            <h2>나는 여행을...</h2>
                 <div>
-                <span>후보3</span>
-                <Radio 
-                value="three" 
-                checked={q1==="three"} 
-                color="primary" 
-                onChange={q1checked}
-                />
-            </div>
-
-            <h1>질문2</h1>
-                <div>
-                <span>후보1</span>
+                <span>가족 단위로 갈 것이다.</span>
                 <Radio 
                 value="one" 
                 checked={q2==="one"} 
@@ -87,9 +90,8 @@ function Questionbox(){
                 onChange={q2checked}
                 />
                 </div>
-
                 <div>
-                <span>후보2</span>
+                <span>혼자, 혹은 애인과 함께 갈 것이다.</span>
                 <Radio 
                 value="two" 
                 checked={q2==="two"} 
@@ -98,26 +100,57 @@ function Questionbox(){
                 />
                 </div>
 
+            <h2>나는 제주도에서 주로</h2>
                 <div>
-                <span>후보3</span>
+                <span>방에 콕 박혀서 낮잠을 잘 것이다.</span>
                 <Radio 
-                value="three" 
-                checked={q2==="three"} 
+                value="one" 
+                checked={q3==="one"} 
                 color="primary" 
-                onChange={q2checked}
+                onChange={q3checked}
                 />
                 </div>
                 <div>
-            <button onClick={Submit}>제출</button>
-        </div>
-        <ul>
-            <li><Link to="/result">result link</Link></li>
-        </ul>
-        </div>
-        <Route path="/result">
-            <Result/>
-        </Route>
-    </Router>
+                <span>여기저기 돌아다니며 여행을 즐길 것이다.</span>
+                <Radio 
+                value="two" 
+                checked={q3==="two"} 
+                color="primary" 
+                onChange={q3checked}
+                />
+                </div>
+
+            <h2>내가 좋아하는 장소는...</h2>
+                <div>
+                <span>인스타 핫플로 유명한 카페, 소품샵이다.</span>
+                <Radio 
+                value="one" 
+                checked={q4==="one"} 
+                color="primary" 
+                onChange={q4checked}
+                />
+                </div>
+                <div>
+                <span>탁 트인 산과 바다이다.</span>
+                <Radio 
+                value="two" 
+                checked={q4==="two"} 
+                color="primary" 
+                onChange={q4checked}
+                />
+                </div> 
+
+                <div>
+                    <button onClick={Submit}>설문지 제출</button>
+                </div>
+                <ul>
+                    <li><Link to="/result">result link</Link></li>
+                </ul>
+                <Route path="/result">
+                    <Result/>
+                </Route>
+            </div>
+        </Router>        
 </div>
         
     );
