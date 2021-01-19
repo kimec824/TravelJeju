@@ -15,7 +15,6 @@ const useStyle = makeStyles((theme) => ({
     marginTop: theme.spacing(4),
     marginBottom: theme.spacing(4),
     paddingBottom: theme.spacing(2),
-    columnCount: 5,
   },
 }));
 export default function List({ list, index }) {
