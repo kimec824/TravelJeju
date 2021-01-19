@@ -15,5 +15,22 @@
     }
 
     .nextPageButton{
-        color:red;
+        padding-top:150px;
+        margin-top:-80px;
+        margin-left:130px;
+        background: url('newairplane.png') no-repeat;
+        border:none;
+        width:64px;
+        height:64px;
+        cursor:pointer;
+    }
+
+    .nextPageMessage{
+        color:whitesmoke;
+        background: url('cloud.png') no-repeat;
+        height: 73px;
+        width:130px;
+        padding:7px;
+        margin:0 auto;
+        border-radius:5px;
     }

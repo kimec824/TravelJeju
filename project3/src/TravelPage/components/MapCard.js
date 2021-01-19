@@ -68,7 +68,6 @@ const MapCard = (locationarray) => {
                 )
               })
         }
-        
         </GoogleMap>
      </LoadScript>
   )
