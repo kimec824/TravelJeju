@@ -1,6 +1,7 @@
 import React from 'react';
 import { Typography, Button } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import './TopBar.css'
 
 const useStyle = makeStyles((theme) => ({
   root: {
@@ -10,23 +11,18 @@ const useStyle = makeStyles((theme) => ({
   },
   title: {
     fontSize: '1.2rem',
+    color: 'black',
+    
     fontWeight: 'bold',
     flexGrow: 1,
-  },
-  btn: {
-    color: '#fff',
-    background: 'hsla(0,0%,100%,.24)',
   },
 }));
 
 export default function TopBar({ setOpen }) {
-  const classes = useStyle();
+  //const classes = useStyle();
   return (
-    <div className={classes.root}>
-      <Typography className={classes.title}>Daily Trello</Typography>
-      <Button className={classes.btn} onClick={() => setOpen(true)}>
-        Change Background
-      </Button>
+    <div>
+      <Typography className='planTitle'>Daily Trello</Typography>
     </div>
   );
 }

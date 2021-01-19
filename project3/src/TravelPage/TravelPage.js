@@ -13,6 +13,7 @@ import Geocode from 'react-geocode';
 import {Marker} from 'google-maps-react';
 import {Button} from '@material-ui/core';
 import ContentCard from './components/ContentCard';
+import './TravelPage.css'
 
 const useStyle = makeStyles((theme) => ({
   root: {
@@ -210,14 +211,21 @@ export default function TravelPage() {
           backgroundRepeat: 'no-repeat',
         }}
       >
-        <TopBar setOpen={setOpen} />
-        <MapCard  locationarray = {locations}/>
-        <Button onClick={allclicked}>전체</Button>
-        <Button onClick={foodclicked}>음식점</Button>
-        <Button onClick={homeclicked}>숙박</Button>
-        <Button onClick={tripclicked}>관광지</Button>
-        <DragDropContext onDragEnd={onDragEnd}>
-          <Droppable droppableId="app" type="list" direction="horizontal">
+        
+       
+
+       <TopBar setOpen={setOpen} />
+        <table className='table'>
+          <td><MapCard  className='map' locationarray = {locations}/></td>
+          <td >
+          <div class="buttonGroup">
+          <Button className='classfication' onClick={allclicked}>전체</Button>
+          <Button className='classfication' onClick={foodclicked}>음식점</Button>
+          <Button className='classfication' onClick={homeclicked}>숙박</Button>
+          <Button className='classfication' onClick={tripclicked}>관광지</Button>
+          </div>
+        <DragDropContext  onDragEnd={onDragEnd}>
+          <Droppable  droppableId="app" type="list" direction="horizontal">
             {(provided) => (
               <div
                 className={classes.listContainer}
@@ -264,6 +272,9 @@ export default function TravelPage() {
             )}
           </Droppable>
         </DragDropContext>
+        </td>
+        </table>
+        
       </div>
     </StoreApi.Provider>
   );
