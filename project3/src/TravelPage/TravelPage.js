@@ -35,7 +35,7 @@ Geocode.setRegion("kr");
 
 //var locations = [{ name: "", location: { lat: 33.365, lng: 126.56}}];
 
-export default function TravelPage() {
+export default function TravelPage(region) {
   
   const [collect, setcollect] = useState("전체");
   const [card, setCard] = useState([]);
@@ -43,13 +43,22 @@ export default function TravelPage() {
   const [open, setOpen] = useState(false);
   const [locations, setLocations] = useState([{ name: "", location: { lat: 0, lng: 0}}]);
   var defaultlist = [];
-  
+  var Region = "";
 
-  useEffect(()=> {
-    axios
-        .get('http://192.249.18.249:3000/getweoljung/')
-        .then(response => setCard(response.data)) 
-    console.log("getaewol");
+
+  useEffect (async ()=> {
+
+  var region ="";
+  await axios.get('http://192.249.18.249:3000/getregion')
+         .then(response=> {
+          region = response.data.region;
+          console.log(response.data.region);
+          console.log(region);
+         })
+  await axios
+          .get('http://192.249.18.249:3000/get'+ region+'/')
+          .then(response => setCard(response.data)) 
+          console.log("getregion");
   }, []);
 
   const [backgroundUrl, setBackgroundUrl] = useState('');
