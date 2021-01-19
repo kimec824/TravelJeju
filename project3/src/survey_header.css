@@ -1,13 +1,13 @@
 .jejuhallasan * {
-    font-family: 'Jeju Hallasan', cursive;
+    font-family: 'Cafe24Oneprettynight', cursive;
    }
 
 .header{
     
     @import url(//fonts.googleapis.com/earlyaccess/jejuhallasan.css);
 
-    font-family: 'Jeju Hallasan', cursive;
-    color: black;
+    font-family: 'Cafe24Oneprettynight', cursive;
+    color:rgb(10, 19, 99);
     margin-top:60px;
     text-align: center;
     margin-left:auto;

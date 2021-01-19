@@ -80,13 +80,13 @@ function Questionbox(){
         <div className='questionbox'>
             <h2>나는 제주도에서 운전을 할 수 </h2>
                 <div>
-                <span>있다.</span>
-                <Radio 
+                <span>있다.<Radio 
                 value="one"
                 checked={q1==="one"} 
                 color="primary" 
                 onChange={q1checked}
-                />
+                /></span>
+                
                 </div>
                 <div>
                 <span>없다.</span>
@@ -166,6 +166,9 @@ function Questionbox(){
                 <div>
                 <br/><br/>
                     <button className='submitbutton' onClick={Submit}>설문지 제출</button>
+                <br/><br/>
+                <br/><br/>
+
                 </div>
                 <Route path="/result">
                     <Result/>
