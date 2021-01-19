@@ -11,7 +11,7 @@ function Result(){
     const [q3,setQ3] = useState("one")
     const [q4,setQ4] = useState("one")
     var data = null;
-    const Data= axios.get('http://192.249.18.235:3000/surveyresult').then((response)=>{
+    const Data= axios.get('http://192.249.18.249:3000/surveyresult').then((response)=>{
         data = response.data.mySurveyresult;
         console.log(data);
         console.log(data.q1);
@@ -22,10 +22,10 @@ function Result(){
     });
     var json=null;
 const goNextPage=async()=>{
-    await axios.delete('http://192.249.18.235:3000/region');
+    await axios.delete('http://192.249.18.249:3000/region');
     //region post하기
     await axios.post(
-        'http://192.249.18.235:3000/region',
+        'http://192.249.18.249:3000/region',
         json,
         {
             headers:{'Content-Type':'application/json'}
@@ -35,7 +35,7 @@ const goNextPage=async()=>{
     }).catch(error=>{
         console.log(error);
     });
-    document.location.href="/plan"
+    document.location.href='/plan'
 }
     switch(q1){
         case "one":
