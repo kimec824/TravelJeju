@@ -8,31 +8,45 @@ import Result from './Result.js'
 
 
 function Questionbox(){
-    const [q1,setQ1] = useState("one")
-    const [q2,setQ2] = useState("one")
-    const [q3,setQ3] = useState("one")
-    const [q4,setQ4] = useState("one")
+    const [q1,setQ1] = useState("one");
+    const [q2,setQ2] = useState("one");
+    const [q3,setQ3] = useState("one");
+    const [q4,setQ4] = useState("one");
     const axios=require('axios');
 
     const q1checked=(e)=>
     {
+        /*console.log(q1)
+        console.log(e.target.value)
+        if(e.target.value==="one")
+        setQ1("two");
+        else if(e.target.value==="two")
+        setQ1("one")*/
         setQ1(e.target.value)
-        console.log("q1checked")
     }
     const q2checked=(e)=>
     { 
+        /*if(e.target.value==="one")
+        setQ2("two");
+        else if(e.target.value==="two")
+        setQ2("one")*/
         setQ2(e.target.value)
-        console.log("q2checked")
     }
     const q3checked=(e)=>
     {
+        /*if(e.target.value==="one")
+        setQ3("two");
+        else if(e.target.value==="two")
+        setQ3("one")*/
         setQ3(e.target.value)
-        console.log("q3checked")
     }
     const q4checked=(e)=>
     { 
+        /*if(e.target.value==="one")
+        setQ4("two");
+        else if(e.target.value==="two")
+        setQ4("one")*/
         setQ4(e.target.value)
-        console.log("q4checked")
     }
 
     const json={
@@ -41,9 +55,11 @@ function Questionbox(){
         q3:q3,
         q4:q4
     }
-    function Submit(){
-        axios.delete('http://192.249.18.235:3000/surveyresult');
-        axios.post(
+
+    const Submit = async() => {
+       await axios.delete('http://192.249.18.235:3000/surveyresult');
+        console.log(json);
+       await axios.post(
             'http://192.249.18.235:3000/surveyresult',
             json,
             {
@@ -54,14 +70,16 @@ function Questionbox(){
         }).catch(error=>{
             console.log(error);
         });
-       
+         
+        document.location.href="/result"
+        
     }
     return(
 <div>
     <Router>
         <div className='questionbox'>
             <h2>나는 제주도에서 운전을 할 수 </h2>
-            <div>
+                <div>
                 <span>있다.</span>
                 <Radio 
                 value="one"
@@ -73,11 +91,12 @@ function Questionbox(){
                 <div>
                 <span>없다.</span>
                 <Radio 
-                value="two" 
+                value="two"
                 checked={q1==="two"} 
                 color="primary" 
                 onChange={q1checked}
                 />
+                <br/><br/>
                 </div>
 
 
@@ -99,6 +118,7 @@ function Questionbox(){
                 color="primary" 
                 onChange={q2checked}
                 />
+                <br/><br/>
                 </div>
 
             <h2>나는 제주도에서 주로</h2>
@@ -119,13 +139,14 @@ function Questionbox(){
                 color="primary" 
                 onChange={q3checked}
                 />
+                <br/><br/>
                 </div>
 
             <h2>내가 좋아하는 장소는...</h2>
                 <div>
                 <span>인스타 핫플로 유명한 카페, 소품샵이다.</span>
                 <Radio 
-                value="one" 
+                value="one"
                 checked={q4==="one"} 
                 color="primary" 
                 onChange={q4checked}
@@ -134,19 +155,18 @@ function Questionbox(){
                 <div>
                 <span>탁 트인 산과 바다이다.</span>
                 <Radio 
-                value="two" 
+                value="two"
                 checked={q4==="two"} 
                 color="primary" 
                 onChange={q4checked}
                 />
+                <br/><br/>
                 </div> 
 
                 <div>
-                    <button onClick={Submit}>설문지 제출</button>
+                <br/><br/>
+                    <button className='submitbutton' onClick={Submit}>설문지 제출</button>
                 </div>
-                <ul>
-                    <li><Link to="/result">result link</Link></li>
-                </ul>
                 <Route path="/result">
                     <Result/>
                 </Route>

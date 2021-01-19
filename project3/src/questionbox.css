@@ -3,16 +3,66 @@
     @import url(//fonts.googleapis.com/earlyaccess/hanna.css);
     font-family: 'Hanna', sans-serif;
     background-color:rgba(255, 255, 255, 0.75);
-    padding:30px;
-    margin:0px;
+    padding-top:50px;
+    padding-bottom:100px;
+    margin-top:20px;
     justify-content:center;
     width:50%;
     text-align: center;
     height:70%;
-    border-radius: 100px;
+    border-radius: 50px;
     position: absolute;
     top:60%;
     left:50%;
     transform:translate(-50%, -50%);
     z-index:1000;
 }
+
+
+.submitbutton{
+  text-align:center;
+  margin-top: 50px;
+}
+.submitbutton:before{
+  content:'';
+  height:100%;
+  display:inline-block;
+  vertical-align:middle;
+}
+.submitbutton{
+  background:#1AAB8A;
+  color:#fff;
+  border:none;
+  position:relative;
+  height:60px;
+  font-size:1.6em;
+  padding:0 2em;
+  cursor:pointer;
+  transition:800ms ease all;
+  outline:none;
+}
+.submitbutton:hover{
+  background:#fff;
+  color:#1AAB8A;
+}
+.submitbutton:before,button:after{
+  content:'';
+  position:absolute;
+  top:0;
+  right:0;
+  height:2px;
+  width:0;
+  background: #1AAB8A;
+  transition:400ms ease all;
+}
+.submitbutton:after{
+  right:inherit;
+  top:inherit;
+  left:0;
+  bottom:0;
+}
+.submitbutton:hover:before,button:hover:after{
+  width:100%;
+  transition:800ms ease all;
+}
+
