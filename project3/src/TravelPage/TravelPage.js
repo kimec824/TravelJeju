@@ -13,6 +13,7 @@ import Geocode from 'react-geocode';
 import {Marker} from 'google-maps-react';
 import {Button} from '@material-ui/core';
 import ContentCard from './components/ContentCard';
+import {Link} from "react-router-dom";
 import './TravelPage.css'
 
 const useStyle = makeStyles((theme) => ({
@@ -30,10 +31,7 @@ var flag = 0;
 Geocode.setApiKey('AIzaSyDLTqNLX9015_waYN7su_aK_OgZIu3g5Fk');
 Geocode.enableDebug();
 Geocode.setRegion("kr");
-  
-//var locations = [{ name: "", location: { lat: 33.365, lng: 126.56}}];
 
-//var locations = [{ name: "", location: { lat: 33.365, lng: 126.56}}];
 
 export default function TravelPage(region) {
   
@@ -41,9 +39,10 @@ export default function TravelPage(region) {
   const [card, setCard] = useState([]);
   const [data, setData] = useState(store);
   const [open, setOpen] = useState(false);
-  const [locations, setLocations] = useState([{ name: "", location: { lat: 33.365, lng: 126.56}}]);
+  const [locations, setLocations] = useState([{ name: "", location: { lat: 0, lng: 0}}]);
   var defaultlist = [];
   var Region = "";
+  var cnt = {lat : 0, lng : 0};
 
 
   useEffect (async ()=> {
@@ -59,6 +58,10 @@ export default function TravelPage(region) {
           .get('http://192.249.18.249:3000/get'+ region+'/')
           .then(response => setCard(response.data)) 
           console.log("getregion");
+          console.log(region);
+  if(region === "weoljung"){
+    cnt = {lat : 33.3285, lng : 126.8212}
+  }
   }, []);
 
   const [backgroundUrl, setBackgroundUrl] = useState('');
@@ -218,20 +221,23 @@ export default function TravelPage(region) {
           backgroundImage: `url(${backgroundUrl})`,
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
+          fontFamily:'BMHANNAAir',
         }}
       >
         
        
-
-       <TopBar setOpen={setOpen} />
+        <Link to = '/' style ={{textDecoration: 'none'}}>
+            <TopBar setOpen={setOpen}/>
+        </Link>
+       
         <table className='table'>
-          <td><MapCard  className='map' locationarray = {locations}/></td>
+          <td><MapCard  className='map' locationarray = {locations} centers={cnt}/></td>
           <td >
           <div class="buttonGroup">
           <Button className='classfication' onClick={allclicked}>전체</Button>
-          <Button className='classfication' onClick={foodclicked}>음식점</Button>
+          <Button  className='classfication'onClick={foodclicked}>음식점</Button>
           <Button className='classfication' onClick={homeclicked}>숙박</Button>
-          <Button className='classfication' onClick={tripclicked}>관광지</Button>
+          <Button  className='classfication'onClick={tripclicked}>관광지</Button>
           </div>
         <DragDropContext  onDragEnd={onDragEnd}>
           <Droppable  droppableId="app" type="list" direction="horizontal">
@@ -243,15 +249,12 @@ export default function TravelPage(region) {
               >
                 {data.listIds.map((listId, index) => {
                   const list = data.lists[listId];
-                  console.log("check refresh")
-                  console.log(flag)
+                  console.log(region);
+                  console.log(cnt);
                   
                   if(listId === 'list-2' && flag !==4){
                     var i, j
-                    console.log(list.cards.length);
-                    console.log("set zero");
-                    console.log(list.cards[0]);
-                    for(j = 0; j<(list.cards.length*100);j++){
+                    for(j = 0; j<(list.cards.length*1000);j++){
                       list.cards.pop();
                     }
                     console.log(list.cards);
