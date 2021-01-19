@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Title from './Title';
 import Card from '../Card';
 import { Droppable, Draggable } from 'react-beautiful-dnd';
+import ContentCard from '../ContentCard';
 
 const useStyle = makeStyles((theme) => ({
   root: {
@@ -15,7 +16,6 @@ const useStyle = makeStyles((theme) => ({
     marginTop: theme.spacing(4),
     marginBottom: theme.spacing(4),
     paddingBottom: theme.spacing(2),
-    columnCount: 5,
   },
 }));
 export default function List({ list, index }) {
@@ -33,7 +33,7 @@ export default function List({ list, index }) {
                   className={classes.cardContainer}
                 >
                   {list.cards.map((card, index) => (
-                    <Card key={card.id} card={card} index={index} />
+                    <ContentCard key={card.id} card={card} index={index} />
                    
                   ))}
                   {provided.placeholder}
