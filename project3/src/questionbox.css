@@ -45,7 +45,7 @@
   background:#fff;
   color:#1AAB8A;
 }
-.submitbutton:before,button:after{
+.submitbutton:before,.submitbutton:after{
   content:'';
   position:absolute;
   top:0;
@@ -61,7 +61,7 @@
   left:0;
   bottom:0;
 }
-.submitbutton:hover:before,button:hover:after{
+.submitbutton:hover:before,.submitbutton:hover:after{
   width:100%;
   transition:800ms ease all;
 }
