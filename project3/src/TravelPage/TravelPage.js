@@ -41,7 +41,7 @@ export default function TravelPage() {
   const [card, setCard] = useState([]);
   const [data, setData] = useState(store);
   const [open, setOpen] = useState(false);
-  const [locations, setLocations] = useState([{ name: "", location: { lat: 33.365, lng: 126.56}}]);
+  const [locations, setLocations] = useState([{ name: "", location: { lat: 0, lng: 0}}]);
   var defaultlist = [];
   
 
@@ -209,6 +209,7 @@ export default function TravelPage() {
           backgroundImage: `url(${backgroundUrl})`,
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
+          fontFamily:'BMHANNAAir',
         }}
       >
         
@@ -220,9 +221,9 @@ export default function TravelPage() {
           <td >
           <div class="buttonGroup">
           <Button className='classfication' onClick={allclicked}>전체</Button>
-          <Button className='classfication' onClick={foodclicked}>음식점</Button>
+          <Button  className='classfication'onClick={foodclicked}>음식점</Button>
           <Button className='classfication' onClick={homeclicked}>숙박</Button>
-          <Button className='classfication' onClick={tripclicked}>관광지</Button>
+          <Button  className='classfication'onClick={tripclicked}>관광지</Button>
           </div>
         <DragDropContext  onDragEnd={onDragEnd}>
           <Droppable  droppableId="app" type="list" direction="horizontal">

@@ -5,7 +5,7 @@
     font-family: 'BMHANNAAir', cursive;
     color:rgb(10, 19, 99);
     background-color:rgba(255, 255, 255, 0.75);
-    padding-top:50px;
+    padding-top:20px;
     padding-bottom:70px;
     margin-top:10px;
     justify-content:center;
@@ -23,7 +23,7 @@
 
 .submitbutton{
   text-align:center;
-  margin-top: 50px;
+  margin-top: 20px;
   font-family: 'BMHANNAAir', cursive;
   font-size:large;
 }

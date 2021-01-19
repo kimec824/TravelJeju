@@ -24,18 +24,23 @@ fontSize: 14,
 color:'rgb(10, 19, 99)',
 },
 content:{
-fontfamily:'BMHANNAAir',
+    fontWeight:700,
+fontFamily:'BMHANNAAir',
 color:'rgb(10, 19, 99)',
 },
 score:{
 
     fontFamily:'BMHANNAAir',
     color:'rgb(10, 19, 99)',
-    fontSize:14,
+    fontSize:18,
 },
 pos: {
 marginBottom: 12,
 },
+button:{
+    color:'rgb(10, 19, 99)',
+    marginTop:'-15px',
+}
 });
 
 export default function ContentCard({card, index}) {
@@ -63,7 +68,7 @@ return (
                     </Typography>
                 </CardContent>
                 <CardActions>
-                    <Button size="small" onClick ={()=> window.open('https://www.visitjeju.net/kr/detail/view?contentsid='+ card.contentid, '_blank')}>More</Button>
+                    <Button className={classes.button} size="small" onClick ={()=> window.open('https://www.visitjeju.net/kr/detail/view?contentsid='+ card.contentid, '_blank')}>More</Button>
                 </CardActions>
             </Card>    
             </div>

@@ -80,12 +80,13 @@ function Questionbox(){
         <div className='questionbox'>
             <h2>나는 제주도에서 운전을 할 수 </h2>
                 <div>
-                <span>있다.<Radio 
+                <span>있다.</span>
+                <Radio 
                 value="one"
                 checked={q1==="one"} 
                 color="primary" 
                 onChange={q1checked}
-                /></span>
+                />
                 
                 </div>
                 <div>
@@ -96,7 +97,6 @@ function Questionbox(){
                 color="primary" 
                 onChange={q1checked}
                 />
-                <br/><br/>
                 </div>
 
 
@@ -118,7 +118,6 @@ function Questionbox(){
                 color="primary" 
                 onChange={q2checked}
                 />
-                <br/><br/>
                 </div>
 
             <h2>나는 제주도에서 주로</h2>
@@ -139,7 +138,6 @@ function Questionbox(){
                 color="primary" 
                 onChange={q3checked}
                 />
-                <br/><br/>
                 </div>
 
             <h2>내가 좋아하는 장소는...</h2>
@@ -160,13 +158,10 @@ function Questionbox(){
                 color="primary" 
                 onChange={q4checked}
                 />
-                <br/><br/>
                 </div> 
 
                 <div>
-                <br/><br/>
                     <button className='submitbutton' onClick={Submit}>설문지 제출</button>
-                <br/><br/>
                 <br/><br/>
 
                 </div>

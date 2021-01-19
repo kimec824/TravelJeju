@@ -6,12 +6,17 @@ import storeApi from '../../utils/storeApi';
 
 const useStyle = makeStyles((theme) => ({
   editableTitleContainer: {
+
     margin: theme.spacing(1),
+    color:'rgb(10, 19, 99)',
+    fontFamily:'BMHANNAAir',
     display: 'flex',
+    marginTop:'10px',
   },
   editableTitle: {
     flexGrow: 1,
     fontSize: '1.2rem',
+    fontFamily:'BMHANNAAir',
     fontWeight: 'bold',
   },
   input: {
@@ -53,13 +58,12 @@ export default function Title({ title, listId }) {
         </div>
       ) : (
         <div className={classes.editableTitleContainer}>
-          <Typography
+          <Typography  
             onClick={() => setOpen(!open)}
             className={classes.editableTitle}
           >
             {title}
           </Typography>
-          <MoreHorizIcon />
         </div>
       )}
     </div>
