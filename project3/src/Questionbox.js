@@ -87,6 +87,7 @@ function Questionbox(){
                 color="primary" 
                 onChange={q1checked}
                 />
+                
                 </div>
                 <div>
                 <span>없다.</span>
@@ -96,7 +97,6 @@ function Questionbox(){
                 color="primary" 
                 onChange={q1checked}
                 />
-                <br/><br/>
                 </div>
 
 
@@ -118,7 +118,6 @@ function Questionbox(){
                 color="primary" 
                 onChange={q2checked}
                 />
-                <br/><br/>
                 </div>
 
             <h2>나는 제주도에서 주로</h2>
@@ -139,7 +138,6 @@ function Questionbox(){
                 color="primary" 
                 onChange={q3checked}
                 />
-                <br/><br/>
                 </div>
 
             <h2>내가 좋아하는 장소는...</h2>
@@ -160,12 +158,12 @@ function Questionbox(){
                 color="primary" 
                 onChange={q4checked}
                 />
-                <br/><br/>
                 </div> 
 
                 <div>
-                <br/><br/>
                     <button className='submitbutton' onClick={Submit}>설문지 제출</button>
+                <br/><br/>
+
                 </div>
                 <Route path="/result">
                     <Result/>

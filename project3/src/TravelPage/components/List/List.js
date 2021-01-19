@@ -10,6 +10,7 @@ const useStyle = makeStyles((theme) => ({
   root: {
     minWidth: '300px',
     backgroundColor: '#EBECF0',
+    paddingTop:'15px',
     marginLeft: theme.spacing(1),
   },
   cardContainer: {
@@ -34,7 +35,6 @@ export default function List({ list, index }) {
                 >
                   {list.cards.map((card, index) => (
                     <ContentCard key={card.id} card={card} index={index} />
-                   
                   ))}
                   {provided.placeholder}
                   

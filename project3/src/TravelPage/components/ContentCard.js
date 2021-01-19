@@ -10,24 +10,42 @@ import {Link} from 'react-router-dom';
 
 const useStyles = makeStyles({
 root: {
-    minWidth: '300px',
+    width:'500px',
+    minWidth: '500px',
 },
+
 bullet: {
 display: 'inline-block',
 margin: '0 2px',
 transform: 'scale(0.8)',
 },
 title: {
-fontSize: 12,
+fontSize: 14,
+color:'rgb(10, 19, 99)',
+},
+content:{
+    fontWeight:700,
+fontFamily:'BMHANNAAir',
+color:'rgb(10, 19, 99)',
+},
+score:{
+
+    fontFamily:'BMHANNAAir',
+    color:'rgb(10, 19, 99)',
+    fontSize:18,
 },
 pos: {
 marginBottom: 12,
 },
+button:{
+    color:'rgb(10, 19, 99)',
+    marginTop:'-15px',
+}
 });
 
 export default function ContentCard({card, index}) {
 const classes = useStyles();
-const bull = <span className={classes.bullet}>•</span>;
+//const bull = <span className={classes.bullet}>•</span>;
 
 return (
     <Draggable draggableId = {card.id} index = {index} >
@@ -42,15 +60,15 @@ return (
                     <Typography className={classes.title} color="textSecondary" gutterBottom>
                         {card.content}
                     </Typography>
-                    <Typography variant="h5" component="h2">
+                    <Typography variant="h5" className={classes.content} component="h2">
                         {card.contentname}
                     </Typography>
-                    <Typography variant="body2" component="p">
+                    <Typography variant="body2" className={classes.score} component="p">
                         인기점수 :{card.score} 점
                     </Typography>
                 </CardContent>
                 <CardActions>
-                    <Button size="small" onClick ={()=> window.open('https://www.visitjeju.net/kr/detail/view?contentsid='+ card.contentid, '_blank')}>More</Button>
+                    <Button className={classes.button} size="small" onClick ={()=> window.open('https://www.visitjeju.net/kr/detail/view?contentsid='+ card.contentid, '_blank')}>More</Button>
                 </CardActions>
             </Card>    
             </div>

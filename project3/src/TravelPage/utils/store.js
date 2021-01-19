@@ -20,12 +20,12 @@ const cards = [
     lists: {
       'list-1': {
         id: 'list-1',
-        title: 'Todo',
+        title: '나의 여행지',
         cards : [] ,
       },
       'list-2': {
         id: 'list-2',
-        title: 'Doing',
+        title: '여행지 목록',
         cards : []
       },
     },
