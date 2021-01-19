@@ -46,22 +46,22 @@ const goNextPage=async()=>{
                             switch(q4){
                                 case "one":  { json={"region":"aewol"}
                                                 return(<div><div className='resultbox'><h5>당신에게 어울리는 제주도의 여행지는 "애월읍"입니다.</h5> </div>
-                                                    <button onClick={goNextPage}>여행지 정보 보러 가기</button></div>);
+                                                    <button className='nextPageButton' onClick={goNextPage}>여행지 정보 보러 가기</button></div>);
                                                 }   
                                 case "two": { json={"region":"seoguipo"}
                                                 return(<div><div className='resultbox'>당신에게 어울리는 제주도의 여행지는 "서귀포시"입니다. </div>
-                                                    <button onClick={goNextPage}>여행지 정보 보러 가기</button></div>);
+                                                    <button className='nextPageButton' onClick={goNextPage}>여행지 정보 보러 가기</button></div>);
                                             }
                             }
                         case "two":
                             switch(q4){
                                 case "one": {  json={"region":"pyosun"}
-                                                 return(<div><div className='resultbox'>당신에게 어울리는 제주도의 여행지는 "표선면"입니다. </div>
-                                                    <button onClick={goNextPage}>여행지 정보 보러 가기</button></div>);
+                                                 return(<div><div className='resultbox'><br/><br/>당신에게 어울리는 제주도의 여행지는 "표선면"입니다. </div>
+                                                    <button className='nextPageButton' onClick={goNextPage}>여행지 정보 보러 가기</button></div>);
                                             }           
                                 case "two": {  json={"region":"jocheon"}
                                                 return(<div><div className='resultbox'><br/><br/>당신에게 어울리는 제주도의 여행지는 "조천읍"입니다. </div>
-                                                    <button onClick={goNextPage}>여행지 정보 보러 가기</button></div>);
+                                                    <button className='nextPageButton' onClick={goNextPage}>여행지 정보 보러 가기</button></div>);
                                             }       
                             }
                     }
@@ -70,23 +70,23 @@ const goNextPage=async()=>{
                         case "one":
                             switch(q4){
                                 case "one": {  json={"region":"aewol"}
-                                                return(<div><div className='resultbox'><h5>당신에게 어울리는 제주도의 여행지는 "애월읍"입니다.</h5> </div>
-                                                    <button onClick={goNextPage}>여행지 정보 보러 가기</button></div>);
+                                                return(<div><div className='resultbox'><br/><br/>당신에게 어울리는 제주도의 여행지는 "애월읍"입니다. </div>
+                                                    <button className='nextPageButton' onClick={goNextPage}>여행지 정보 보러 가기</button></div>);
                                             }       
                                 case "two": { json={"region":"seoguipo"}
-                                                return(<div><div className='resultbox'>당신에게 어울리는 제주도의 여행지는 "서귀포시"입니다. </div>
-                                                    <button onClick={goNextPage}>여행지 정보 보러 가기</button></div>);
+                                                return(<div><div className='resultbox'><br/><br/>당신에게 어울리는 제주도의 여행지는 "서귀포시"입니다. </div>
+                                                    <button className='nextPageButton' onClick={goNextPage}>여행지 정보 보러 가기</button></div>);
                                              }
                             }
                         case "two":
                             switch(q4){
                                 case "one": { json={"region":"pyosun"}
-                                                return(<div><div className='resultbox'>당신에게 어울리는 제주도의 여행지는 "표선면"입니다. </div>
-                                                    <button onClick={goNextPage}>여행지 정보 보러 가기</button></div>);
+                                                return(<div><div className='resultbox'><br/><br/>당신에게 어울리는 제주도의 여행지는 "표선면"입니다. </div>
+                                                    <button className='nextPageButton' onClick={goNextPage}>여행지 정보 보러 가기</button></div>);
                                             }   
                                 case "two": {json={"region":"jocheon"}
                                                 return(<div><div className='resultbox'><br/><br/>당신에게 어울리는 제주도의 여행지는 "조천읍"입니다. </div>
-                                                    <button onClick={goNextPage}>여행지 정보 보러 가기</button></div>);
+                                                    <button className='nextPageButton' onClick={goNextPage}>여행지 정보 보러 가기</button></div>);
                                             }
                             }
                     }
@@ -98,23 +98,23 @@ const goNextPage=async()=>{
                         case "one":
                             switch(q4){
                                 case "one": { json={"region":"weoljung"}
-                                                return(<div><div className='resultbox'>당신에게 어울리는 제주도의 여행지는 "월정리"입니다. </div>
-                                                    <button onClick={goNextPage}>여행지 정보 보러 가기</button></div>);
+                                                return(<div><div className='resultbox'><br/><br/>당신에게 어울리는 제주도의 여행지는 "월정리"입니다. </div>
+                                                    <button className='nextPageButton' onClick={goNextPage}>여행지 정보 보러 가기</button></div>);
                                             }
                                 case "two": { json={"region":"hanlim"}
-                                                return(<div><div className='resultbox'>당신에게 어울리는 제주도의 여행지는 "한림읍"입니다. </div>
-                                                    <button onClick={goNextPage}>여행지 정보 보러 가기</button></div>);
+                                                return(<div><div className='resultbox'><br/><br/>당신에게 어울리는 제주도의 여행지는 "한림읍"입니다. </div>
+                                                    <button className='nextPageButton' onClick={goNextPage}>여행지 정보 보러 가기</button></div>);
                                             }
                             }
                         case "two":
                             switch(q4){
                                 case "one":  {json={"region":"woodo"}
-                                                return(<div><div className='resultbox'>당신에게 어울리는 제주도의 여행지는 "우도"입니다. </div>
-                                                    <button onClick={goNextPage}>여행지 정보 보러 가기</button></div>);
+                                                return(<div><div className='resultbox'><br/><br/>당신에게 어울리는 제주도의 여행지는 "우도"입니다. </div>
+                                                    <button className='nextPageButton' onClick={goNextPage}>여행지 정보 보러 가기</button></div>);
                                             }
                                 case "two": {json={"region":"jeju"}
-                                                return(<div><div className='resultbox'>당신에게 어울리는 제주도의 여행지는 "제주시"입니다. </div>
-                                                    <button onClick={goNextPage}>여행지 정보 보러 가기</button></div>);
+                                                return(<div><div className='resultbox'><br/><br/>당신에게 어울리는 제주도의 여행지는 "제주시"입니다. </div>
+                                                    <button className='nextPageButton' onClick={goNextPage}>여행지 정보 보러 가기</button></div>);
                                             }
                             }
                     }
@@ -123,23 +123,23 @@ const goNextPage=async()=>{
                         case "one":
                             switch(q4){
                                 case "one": { json={"region":"weoljung"}
-                                                return(<div><div className='resultbox'>당신에게 어울리는 제주도의 여행지는 "월정리"입니다. </div>
-                                                    <button onClick={goNextPage}>여행지 정보 보러 가기</button></div>);
+                                                return(<div><div className='resultbox'><br/><br/>당신에게 어울리는 제주도의 여행지는 "월정리"입니다. </div>
+                                                    <button className='nextPageButton' className='nextPageButton' onClick={goNextPage}>여행지 정보 보러 가기</button></div>);
                                             }
                                 case "two": { json={"region":"hanlim"}
-                                                return(<div><div className='resultbox'>당신에게 어울리는 제주도의 여행지는 "한림읍"입니다. </div>
-                                                    <button onClick={goNextPage}>여행지 정보 보러 가기</button></div>);
+                                                return(<div><div className='resultbox'><br/><br/>당신에게 어울리는 제주도의 여행지는 "한림읍"입니다. </div>
+                                                    <button className='nextPageButton' onClick={goNextPage}>여행지 정보 보러 가기</button></div>);
                                             }
                             }
                         case "two":
                             switch(q4){
                                 case "one": { json={"region":"woodo"}
-                                                return(<div><div className='resultbox'>당신에게 어울리는 제주도의 여행지는 "우도"입니다. </div>
-                                                    <button onClick={goNextPage}>여행지 정보 보러 가기</button></div>);
+                                                return(<div><div className='resultbox'><br/><br/>당신에게 어울리는 제주도의 여행지는 "우도"입니다. </div>
+                                                    <button className='nextPageButton' onClick={goNextPage}>여행지 정보 보러 가기</button></div>);
                                             }
                                 case "two": {  json={"region":"jeju"}
-                                                return(<div><div className='resultbox'>당신에게 어울리는 제주도의 여행지는 "제주시"입니다. </div>
-                                                    <button onClick={goNextPage}>여행지 정보 보러 가기</button></div>);
+                                                return(<div><div className='resultbox'><br/><br/>당신에게 어울리는 제주도의 여행지는 "제주시"입니다. </div>
+                                                    <button className='nextPageButton' onClick={goNextPage}>여행지 정보 보러 가기</button></div>);
                                             }
                             }
                     }
