@@ -57,10 +57,10 @@ function Questionbox(){
     }
 
     const Submit = async() => {
-       await axios.delete('http://192.249.18.235:3000/surveyresult');
+       await axios.delete('http://192.249.18.249:3000/surveyresult');
         console.log(json);
        await axios.post(
-            'http://192.249.18.235:3000/surveyresult',
+            'http://192.249.18.249:3000/surveyresult',
             json,
             {
                 headers:{'Content-Type':'application/json'}
