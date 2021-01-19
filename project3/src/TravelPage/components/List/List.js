@@ -35,7 +35,6 @@ export default function List({ list, index }) {
                 >
                   {list.cards.map((card, index) => (
                     <ContentCard key={card.id} card={card} index={index} />
-                   
                   ))}
                   {provided.placeholder}
                   

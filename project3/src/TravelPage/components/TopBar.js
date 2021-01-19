@@ -22,7 +22,7 @@ export default function TopBar({ setOpen }) {
   //const classes = useStyle();
   return (
     <div>
-      <Typography className='planTitle'>Daily Trello</Typography>
+      <h1 className='planTitle'>My jeju trip plan</h1>
     </div>
   );
 }

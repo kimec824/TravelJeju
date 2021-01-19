@@ -10,8 +10,10 @@ import {Link} from 'react-router-dom';
 
 const useStyles = makeStyles({
 root: {
-    minWidth: '300px',
+    width:'500px',
+    minWidth: '500px',
 },
+
 bullet: {
 display: 'inline-block',
 margin: '0 2px',
@@ -27,7 +29,7 @@ marginBottom: 12,
 
 export default function ContentCard({card, index}) {
 const classes = useStyles();
-const bull = <span className={classes.bullet}>•</span>;
+//const bull = <span className={classes.bullet}>•</span>;
 
 return (
     <Draggable draggableId = {card.id} index = {index} >
