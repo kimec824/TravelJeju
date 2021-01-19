@@ -11,6 +11,8 @@ import MapCard from './components/MapCard';
 import axios from 'axios';
 import Geocode from 'react-geocode';
 import {Marker} from 'google-maps-react';
+import {Button} from '@material-ui/core';
+import ContentCard from './components/ContentCard';
 
 const useStyle = makeStyles((theme) => ({
   root: {
@@ -34,28 +36,19 @@ Geocode.setRegion("kr");
 
 export default function TravelPage() {
   
-  
+  const [collect, setcollect] = useState("전체");
   const [card, setCard] = useState([]);
   const [data, setData] = useState(store);
   const [open, setOpen] = useState(false);
   const [locations, setLocations] = useState([{ name: "", location: { lat: 33.365, lng: 126.56}}]);
+  var defaultlist = [];
   
 
   useEffect(()=> {
     axios
-        .get('http://192.249.18.249:3000/getaewol/')
+        .get('http://192.249.18.249:3000/getweoljung/')
         .then(response => setCard(response.data)) 
     console.log("getaewol");
-  }, []);
-
-  useEffect(()=>{
-    const list = data.lists['list-2']
-    console.log(card);
-    var i;
-    for(i=0;i<card.length;i++){
-        list.cards[i] = card[i];
-        list.cards[i].id = 'card-' + i;
-    }
   }, []);
 
   const [backgroundUrl, setBackgroundUrl] = useState('');
@@ -76,15 +69,27 @@ export default function TravelPage() {
   const googloe = async(currentAddr)=>{
     const {lat, lng} = await GoogleMap(currentAddr);
     const tmplocation = {name : "", location:{lat:lat, lng: lng}}
-     // locations.location = {lat : lat, lng : lng}
-     // locations.push({name : "", location: {lat:lat, lng :lng}});
-     //locations = { name: "", location: { lat: lat, lng: lng},};
-      // locations.name = "";
-      // locations.location = { lat: lat, lng: lng};
     setLocations([...locations, tmplocation]);
-     //= { name: "", location: { lat: lat, lng: lng},}
     console.log("setstate")
     console.log(locations);
+  }
+
+  const allclicked = ()=> {
+    setcollect("전체");
+    flag = 2;
+    console.log("전체로 바뀜!");
+  }
+  const foodclicked = ()=> {
+    setcollect("음식점");
+    flag = 2;
+  }
+  const homeclicked = ()=> {
+    setcollect("숙박");
+    flag = 2;
+  }
+  const tripclicked = ()=> {
+    setcollect("관광지");
+    flag = 2;
   }
 
 
@@ -207,6 +212,10 @@ export default function TravelPage() {
       >
         <TopBar setOpen={setOpen} />
         <MapCard  locationarray = {locations}/>
+        <Button onClick={allclicked}>전체</Button>
+        <Button onClick={foodclicked}>음식점</Button>
+        <Button onClick={homeclicked}>숙박</Button>
+        <Button onClick={tripclicked}>관광지</Button>
         <DragDropContext onDragEnd={onDragEnd}>
           <Droppable droppableId="app" type="list" direction="horizontal">
             {(provided) => (
@@ -218,11 +227,33 @@ export default function TravelPage() {
                 {data.listIds.map((listId, index) => {
                   const list = data.lists[listId];
                   console.log("check refresh")
+                  console.log(flag)
+                  
                   if(listId === 'list-2' && flag !==4){
-                    var i;
-                    for(i=0;i<card.length;i++){
-                        list.cards[i] = card[i];
-                        list.cards[i].id = 'card-' + i;
+                    var i, j
+                    console.log(list.cards.length);
+                    console.log("set zero");
+                    console.log(list.cards[0]);
+                    for(j = 0; j<(list.cards.length*100);j++){
+                      list.cards.pop();
+                    }
+                    console.log(list.cards);
+                    if(collect === '전체'){
+                      console.log(collect);
+                      for(i=0;i<card.length;i++){
+                          list.cards[i] = card[i];
+                          list.cards[i].id = 'card-' + i;
+                      }
+                    }
+                    else{
+                      console.log(collect);
+                      for(i=0;i<card.length;i++){
+                        if(card[i].content ==collect){
+                          list.cards[i] = card[i];
+                          list.cards[i].id = 'card-' + i;
+                        }
+                          
+                      }
                     }
                     flag += 1;
                   }
@@ -233,12 +264,6 @@ export default function TravelPage() {
             )}
           </Droppable>
         </DragDropContext>
-        
-        <SideMenu
-          setBackgroundUrl={setBackgroundUrl}
-          open={open}
-          setOpen={setOpen}
-        />
       </div>
     </StoreApi.Provider>
   );
