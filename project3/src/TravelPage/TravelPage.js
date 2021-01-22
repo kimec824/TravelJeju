@@ -6,7 +6,6 @@ import StoreApi from './utils/storeApi';
 import { makeStyles } from '@material-ui/core/styles';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import TopBar from './components/TopBar';
-import SideMenu from './components/SideMenu';
 import MapCard from './components/MapCard';
 import axios from 'axios';
 import Geocode from 'react-geocode';
@@ -14,10 +13,10 @@ import {Marker} from 'google-maps-react';
 import {Button} from '@material-ui/core';
 import ContentCard from './components/ContentCard';
 import {Link} from "react-router-dom";
-import './TravelPage.css'
+import './travelpage.css'
 
 const useStyle = makeStyles((theme) => ({
-  root: {
+  rooty: {
     minHeight: '100vh',
     width: '100%',
     overflowY: 'auto',
@@ -56,13 +55,13 @@ export default function TravelPage(region) {
          })
   await axios
           .get('http://192.249.18.249:3000/get'+ region+'/')
-          .then(response => setCard(response.data)) 
-          console.log("getregion");
-          console.log(region);
-  if(region === "weoljung"){
-    cnt = {lat : 33.3285, lng : 126.8212}
-  }
+          .then(response => {
+            setCard(response.data)
+          }) 
+          
   }, []);
+  
+
 
   const [backgroundUrl, setBackgroundUrl] = useState('');
   const classes = useStyle();
@@ -216,7 +215,7 @@ export default function TravelPage(region) {
   return (
     <StoreApi.Provider value={{ addMoreCard, addMoreList, updateListTitle }}>
       <div
-        className={classes.root}
+        className={classes.rooty}
         style={{
           backgroundImage: `url(${backgroundUrl})`,
           backgroundSize: 'cover',
@@ -231,7 +230,10 @@ export default function TravelPage(region) {
         </Link>
        
         <table className='table'>
-          <td><MapCard  className='map' locationarray = {locations} centers={cnt}/></td>
+          <td><MapCard  className='map' locationarray = {locations}
+          {...console.log("here!")}
+          {...console.log(region)}
+          {...console.log(cnt)}/></td>
           <td >
           <div class="buttonGroup">
           <Button className='classfication' onClick={allclicked}>전체</Button>
@@ -249,8 +251,6 @@ export default function TravelPage(region) {
               >
                 {data.listIds.map((listId, index) => {
                   const list = data.lists[listId];
-                  console.log(region);
-                  console.log(cnt);
                   
                   if(listId === 'list-2' && flag !==4){
                     var i, j

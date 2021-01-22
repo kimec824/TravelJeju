@@ -9,7 +9,7 @@ const lastlocations = [];
 //   },
 // },
 
-const MapCard = (locationarray, centers) => {
+const MapCard = (locationarray) => {
 
 
   const addlocations = (locationarray) =>{
@@ -47,17 +47,12 @@ const MapCard = (locationarray, centers) => {
   return (
      <LoadScript
        googleMapsApiKey='AIzaSyDLTqNLX9015_waYN7su_aK_OgZIu3g5Fk'>
-         {
-            console.log(centers)
-          }
         <GoogleMap
           mapContainerStyle={mapStyles}
           zoom={10}
-          center={centers} 
+          center={defaultCenter} 
         >
-          {
-            console.log(centers)
-          }
+
           {
             locations.unshift(locationarray.locationarray)
           }

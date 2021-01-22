@@ -4,7 +4,7 @@ import Questionbox from './Questionbox';
 
 function Home() {
     return (
-        <div>
+        <div {...console.log("qqq")}>
             <Survey_header/>
             <Questionbox/>
         </div>

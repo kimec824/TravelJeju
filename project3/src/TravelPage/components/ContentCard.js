@@ -9,7 +9,7 @@ import {Draggable} from 'react-beautiful-dnd';
 import {Link} from 'react-router-dom';
 
 const useStyles = makeStyles({
-root: {
+rooti: {
     width:'500px',
     minWidth: '500px',
 },
@@ -55,7 +55,7 @@ return (
             {...provided.dragHandleProps}
             {...provided.draggableProps}
             >
-            <Card className={classes.root}>
+            <Card className={classes.rooti}>
                 <CardContent>
                     <Typography className={classes.title} color="textSecondary" gutterBottom>
                         {card.content}
