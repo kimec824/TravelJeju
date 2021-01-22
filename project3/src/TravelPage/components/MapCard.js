@@ -52,14 +52,9 @@ const MapCard = (locationarray) => {
           zoom={10}
           center={defaultCenter} 
         >
-          {
-            console.log(locationarray.locationarray)
-          }
+
           {
             locations.unshift(locationarray.locationarray)
-          }
-          {
-            console.log(locations)
           }
           {
             locations[0].map(item => {

@@ -5,7 +5,7 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Result from './Result';
 import TravelPage from './TravelPage/TravelPage';
 import axios from 'axios';
-
+import Home from './Home';
 
 
 function App() {
@@ -24,8 +24,7 @@ function App() {
           </Route>
 
           <Route path= "/">
-          <Survey_header/>
-          <Questionbox/>
+            <Home/>
           </Route>
 
         </Switch>

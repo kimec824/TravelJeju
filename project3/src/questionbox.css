@@ -22,18 +22,6 @@
 
 
 .submitbutton{
-  text-align:center;
-  margin-top: 20px;
-  font-family: 'BMHANNAAir', cursive;
-  font-size:large;
-}
-.submitbutton:before{
-  content:'';
-  height:100%;
-  display:inline-block;
-  vertical-align:middle;
-}
-.submitbutton{
   background:rgb(10, 19, 99);
   color:#fff;
   border:none;

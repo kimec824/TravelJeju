@@ -13,8 +13,6 @@ function Result(){
     var data = null;
     const Data= axios.get('http://192.249.18.249:3000/surveyresult').then((response)=>{
         data = response.data.mySurveyresult;
-        console.log(data);
-        console.log(data.q1);
     setQ1(data.q1);
     setQ2(data.q2);
     setQ3(data.q3);

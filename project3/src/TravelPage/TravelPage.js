@@ -6,17 +6,17 @@ import StoreApi from './utils/storeApi';
 import { makeStyles } from '@material-ui/core/styles';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import TopBar from './components/TopBar';
-import SideMenu from './components/SideMenu';
 import MapCard from './components/MapCard';
 import axios from 'axios';
 import Geocode from 'react-geocode';
 import {Marker} from 'google-maps-react';
 import {Button} from '@material-ui/core';
 import ContentCard from './components/ContentCard';
-import './TravelPage.css'
+import {Link} from "react-router-dom";
+import './travelpage.css'
 
 const useStyle = makeStyles((theme) => ({
-  root: {
+  rooty: {
     minHeight: '100vh',
     width: '100%',
     overflowY: 'auto',
@@ -30,10 +30,7 @@ var flag = 0;
 Geocode.setApiKey('AIzaSyDLTqNLX9015_waYN7su_aK_OgZIu3g5Fk');
 Geocode.enableDebug();
 Geocode.setRegion("kr");
-  
-//var locations = [{ name: "", location: { lat: 33.365, lng: 126.56}}];
 
-//var locations = [{ name: "", location: { lat: 33.365, lng: 126.56}}];
 
 export default function TravelPage(region) {
   
@@ -44,6 +41,7 @@ export default function TravelPage(region) {
   const [locations, setLocations] = useState([{ name: "", location: { lat: 0, lng: 0}}]);
   var defaultlist = [];
   var Region = "";
+  var cnt = {lat : 0, lng : 0};
 
 
   useEffect (async ()=> {
@@ -57,9 +55,13 @@ export default function TravelPage(region) {
          })
   await axios
           .get('http://192.249.18.249:3000/get'+ region+'/')
-          .then(response => setCard(response.data)) 
-          console.log("getregion");
+          .then(response => {
+            setCard(response.data)
+          }) 
+          
   }, []);
+  
+
 
   const [backgroundUrl, setBackgroundUrl] = useState('');
   const classes = useStyle();
@@ -213,7 +215,7 @@ export default function TravelPage(region) {
   return (
     <StoreApi.Provider value={{ addMoreCard, addMoreList, updateListTitle }}>
       <div
-        className={classes.root}
+        className={classes.rooty}
         style={{
           backgroundImage: `url(${backgroundUrl})`,
           backgroundSize: 'cover',
@@ -223,10 +225,15 @@ export default function TravelPage(region) {
       >
         
        
-
-       <TopBar setOpen={setOpen} />
+        <Link to = '/' style ={{textDecoration: 'none'}}>
+            <TopBar setOpen={setOpen}/>
+        </Link>
+       
         <table className='table'>
-          <td><MapCard  className='map' locationarray = {locations}/></td>
+          <td><MapCard  className='map' locationarray = {locations}
+          {...console.log("here!")}
+          {...console.log(region)}
+          {...console.log(cnt)}/></td>
           <td >
           <div class="buttonGroup">
           <Button className='classfication' onClick={allclicked}>전체</Button>
@@ -244,15 +251,10 @@ export default function TravelPage(region) {
               >
                 {data.listIds.map((listId, index) => {
                   const list = data.lists[listId];
-                  console.log("check refresh")
-                  console.log(flag)
                   
                   if(listId === 'list-2' && flag !==4){
                     var i, j
-                    console.log(list.cards.length);
-                    console.log("set zero");
-                    console.log(list.cards[0]);
-                    for(j = 0; j<(list.cards.length*100);j++){
+                    for(j = 0; j<(list.cards.length*1000);j++){
                       list.cards.pop();
                     }
                     console.log(list.cards);
